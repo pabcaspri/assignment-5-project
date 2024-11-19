@@ -1,0 +1,15 @@
+<?php
+$values = [
+    $_GET['a'] ?? '',
+    $_GET['b'] ?? '',
+    $_GET['c'] ?? '',
+    $_GET['d'] ?? '',
+    $_GET['e'] ?? ''
+];
+
+$command = escapeshellcmd("python3 data_management.py " . implode(" ", $values));
+$output = shell_exec($command);
+
+echo "<h2>Results:</h2>";
+echo "<pre>" . htmlspecialchars($output) . "</pre>";
+?>
